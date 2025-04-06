@@ -1,13 +1,14 @@
 import { createRoot } from "react-dom/client";
 import { StrictMode } from "react";
 import { KcPage } from "./kc.gen";
-
 import { getKcContextMock } from "./login/KcPageStory";
 
-// 👇 Esto inyecta el contexto para la página de registro (mock)
 if (import.meta.env.DEV) {
+    const urlParams = new URLSearchParams(window.location.search);
+    const mockPageId = urlParams.get("mockPageId") ?? "login.ftl"; // Valor por defecto
+
     window.kcContext = getKcContextMock({
-        pageId: "register.ftl", // Puedes cambiar por "login.ftl", "info.ftl", etc.
+        pageId: mockPageId,
         overrides: {}
     });
 }
