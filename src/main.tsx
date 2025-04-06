@@ -2,18 +2,15 @@ import { createRoot } from "react-dom/client";
 import { StrictMode } from "react";
 import { KcPage } from "./kc.gen";
 
-// The following block can be uncommented to test a specific page with `yarn dev`
-// Don't forget to comment back or your bundle size will increase
-/*
 import { getKcContextMock } from "./login/KcPageStory";
 
+// 👇 Esto inyecta el contexto para la página de registro (mock)
 if (import.meta.env.DEV) {
     window.kcContext = getKcContextMock({
-        pageId: "register.ftl",
+        pageId: "register.ftl", // Puedes cambiar por "login.ftl", "info.ftl", etc.
         overrides: {}
     });
 }
-*/
 
 createRoot(document.getElementById("root")!).render(
     <StrictMode>
